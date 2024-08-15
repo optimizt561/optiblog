@@ -262,9 +262,9 @@ def about():
     return render_template("about.html", current_user=current_user, date=datetime.now())
 
 
-@app.route("/contact", methods=["GET", "POST"])
-def contact():
-    return render_template("contact.html", current_user=current_user, date=datetime.now())
+# @app.route("/contact", methods=["GET", "POST"])
+# def contact():
+#     return render_template("contact.html", current_user=current_user, date=datetime.now())
 
 
 @app.route("/contact", methods=["GET", "POST"])
@@ -272,8 +272,8 @@ def contact():
     if request.method == "POST":
         data = request.form
         send_email(data["name"], data["email"], data["phone"], data["message"])
-        return render_template("contact.html", msg_sent=True)
-    return render_template("contact.html", msg_sent=False)
+        return render_template("contact.html", msg_sent=True, date=datetime.now())
+    return render_template("contact.html", msg_sent=False, date=datetime.now())
 
 
 def send_email(name, email, phone, message):
