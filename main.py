@@ -281,9 +281,7 @@ def send_email(name, email, phone, message):
     with smtplib.SMTP("smtp.gmail.com") as connection:
         connection.starttls()
         connection.login(MAIL_ADDRESS, MAIL_APP_PW)
-        connection.sendmail(from_addr=MAIL_ADDRESS,
-            to_addrs=hotmail,
-            msg=email_message)
+        connection.sendmail(from_addr=MAIL_ADDRESS, to_addrs=hotmail, msg=email_message)
 
 
 if __name__ == "__main__":
